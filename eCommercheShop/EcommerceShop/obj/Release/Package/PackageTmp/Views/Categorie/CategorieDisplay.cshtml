@@ -1,0 +1,91 @@
+﻿@model EcommerceShop.Models.DataModel.Categorie
+
+@{
+    ViewBag.Title = "View";
+}
+@{
+    Layout = null;
+    int i = 0;
+
+    <div id="categorieFeatured">
+        <h2>@Model.nomCategorie</h2>
+        <div id="categorieDisplay">
+            <div id="categorieDisplayItem">
+
+                <div id="@ViewBag.compteur" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                    <div class="carousel-inner" style="width: 80%; margin:0 auto;">
+                        <div class="carousel-item row active">
+                            <div class="container">
+                                <div class="row">
+                                    @{ 
+                                        do
+                                        {
+                                            <a style="width: 30%; margin:0 auto;" href="/Item/ItemDescription/@Model.item.ElementAt(0).itemId">
+                                                <img class="d-block  col-sm" src="@Url.Content(Model.item.ElementAt(i).itemImageLink)" alt="">
+                                            </a>
+
+                                            i++;
+                                        } while (i <= 2);
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item row">
+                            <div class="container">
+                                <div class="row">
+                                    @{
+                                        do
+                                        {
+                                            <a style="width: 30%; margin:0 auto;" href="/Item/ItemDescription/@Model.item.ElementAt(0).itemId">
+                                                <img class="d-block  col-sm" src="@Url.Content(Model.item.ElementAt(i).itemImageLink)" alt="">
+                                            </a>
+
+                                            i++;
+                                        } while (i <= 5);
+                                    }
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item row">
+                            <div class="container">
+                                <div class="row">
+                                    @{
+                                        do
+                                        {
+                                            <a style="width: 30%; margin:0 auto;" href="/Item/ItemDescription/@Model.item.ElementAt(0).itemId">
+                                                <img class="d-block  col-sm" src="@Url.Content(Model.item.ElementAt(i).itemImageLink)" alt="">
+                                            </a>
+
+                                            i++;
+                                        } while (i <= 5);
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <a class="carousel-control-prev" href="#@ViewBag.compteur" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" style="outline: black;" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#@ViewBag.compteur" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" style="outline: black;" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+    
+    </div>
+}

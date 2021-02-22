@@ -1,0 +1,132 @@
+﻿@model  EcommerceShop.Models.DataModel.Commande
+
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+
+<div class="container" style="padding-top: 100px;">
+    <div class="row" style="margin-left: 1px;">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Utiliser les informations enregistrées</label>
+        </div>
+    </div>
+    <div class="row">
+        <form action="~/Commande/checkOut" method="post" class="col-sm-8" style="margin-bottom: 20px;">
+            <div class="form-group">
+                <label for="nomClientCommande">Nom Complet</label>
+                <input type="text" class="form-control" name="nomClientCommande" placeholder="Nom Complet">
+
+            </div>
+            <div class="form-group">
+                <label for="Adresse">Adresse</label>
+                <input type="text" class="form-control" name="Adresse"  placeholder="Adresse">
+
+            </div>
+            <div class="form-group">
+                <label for="Ville">Ville</label>
+                <input type="text" class="form-control" name="Ville" placeholder="Ville">
+
+            </div>
+            <div class="form-group">
+                <label for="Province">Province</label>
+
+                <select name="Province" class="form-control">
+                    <option>Quebec</option>
+                    <option>Ontario</option>
+                    <option>Colombie-Britannique</option>
+                    <option>Alberta</option>
+                    <option>Nouvelle-Ecosse</option>
+                    <option>Saskatchewan</option>
+                    <option>Manitoba</option>
+                    <option>Nouveau-Brunswick</option>
+                    <option>Terre-Neuve-Et-Labrador</option>
+                    <option>Ile-Du-Prince-Edouard</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label for="CardNumber">Carte de credit</label>
+                <input type="text" class="form-control" name="CardNumber" placeholder="Carte de credit">
+
+            </div>
+            <div class="form-group">
+                <label for="MoisExpiration">Date d'expiration</label>
+                <div class="row" style="padding-left: 2%;">
+                    <select name="MoisExpiration" class="form-control col-sm-4" style="display: inline;">
+                        <option>Mois</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select name="AnneExpiration" class="form-control col-sm-4" style="display: inline;">
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Cvv">CVV/CVV2</label>
+                    <input type="text" name="Cvv" class="form-control" maxlength="4" placeholder="CVV">
+
+                </div>
+
+
+            </div>
+
+            <button type="submit" style="background-color: #28A745;" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="col-sm-4" style="border-style: solid;border-width: thin;;padding-right: 25px; border-radius: 20px; height: 100%;">
+
+            <div class="align-self-center”" style="float:left; ">
+                @{
+                    foreach (var item in Model.Items)
+                    {
+                        int y = 0;
+                        do
+                        {
+                            <p>@item.itemName</p>
+                            y = ++y;
+                        } while (y < item.Quantite);
+
+                    }
+                }
+                <p> Total</p>
+            </div>
+            <div class="align-self-center”" style="float:right;">
+                @{
+                    var prixTotal=0.0;
+                    foreach (var item in Model.Items)
+                    {
+                        int i = 0;
+                        do
+                        {
+                            <p>@item.itemPrice$</p>
+                            prixTotal = prixTotal + item.itemPrice;
+                            i = ++i;
+                        } while (i<item.Quantite);
+                    }
+                    <p>@prixTotal$</p>
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+

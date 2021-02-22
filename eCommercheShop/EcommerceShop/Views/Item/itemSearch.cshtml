@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EcommerceShop.Models.DataModel.Item>
+
+@{
+    ViewBag.Title = "itemSearch";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <link rel="stylesheet" type="text/css" href="../Css/Index/itemSearch.css">
+
+</head>
+<body>
+    <div id="itemSeachOptions" style="width: 100%;height: 30px; border-style: solid; border-width: thin; border-top: none;border-left: none; border-right: none; ">
+        <p style="margin-left:15px;">@Model.Count() Resultats</p>
+        <select style="float: right;margin-right:15px;">
+            <option>Trier par</option>
+            <option>Prix plus au moin cher</option>
+            <option>Prix moin cher au plus</option>
+            <option>Note</option>
+        </select>
+    </div>
+    <div class="container" style="margin-top: 50px;" id="itemSearchBody">
+        <div class="row">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class=".col-sm-4">
+                        <div class="subFeaturedItem" style="background-color: white;">
+
+                            @{Html.RenderPartial("../Item/ItemSmallDescription", (EcommerceShop.Models.ViewModel.ItemDetails)EcommerceShop.Utilitaire.DataManipulation.copyItemToItemDetails(item));}
+                        </div>
+
+
+                    </div>
+                };
+            }
+
+
+
+
+        </div>
+    </div>
+    @if (Model.Count()<=3)
+    {
+        <style>
+            footer {
+                position: absolute !important;
+                left: 0 !important;
+                bottom: 0 !important;
+                height: 60px !important;
+                width: 100% !important;
+            }
+
+        </style>
+    }
+</body>
+</html>

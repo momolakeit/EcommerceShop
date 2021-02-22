@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="" style="height:100%;" id="bodyContent">
+    <div class="" id="featured">
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <h1>En vedette</h1>
+            <div class="carousel-inner">
+                <div id="carousel-info">
+                    @{
+                        int i = 0;
+                        foreach (var item in @ViewBag.featuredItems)
+                        {
+                            i = ++i;
+                            if (i == 1)
+                            {
+                                <div class="carousel-item carousel-item-MainFeatured active">
+                                    <a href="/Item/ItemDescription/@item.MyProperty">
+                                        <h2 style="color:black">@item.itemName</h2>
+                                        <img class="d-block w-100 ohOui  align-items-center" src="@Url.Content(item.itemImageLink)" alt="First slide" >
+                                        <div class="caption">
+                                            <p style="color:black">@item.prix $</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="carousel-item carousel-item-MainFeatured">
+                                    <a href="/Item/ItemDescription/@item.MyProperty">
+                                        <h2 style="color:black">@item.itemName</h2>
+                                        <img class="d-block w-100 ohOui  align-items-center" src="@Url.Content(item.itemImageLink)" alt="First slide ">
+                                        <div class="caption">
+                                            <p style="color:black">@item.prix$</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+
+
+                        }
+                    }
+
+
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container" id="subFeatured">
+            @{
+                var allSubCategory = ViewBag.subFeaturedItems;
+                foreach (var category in allSubCategory)
+                {
+                    <div class="subFeaturedItem" style="background-color: white;margin-top:25px;">
+                        <h3>@category.nomCategorie</h3>
+                        @foreach (var item in category.item)
+                        {
+
+                            Html.RenderPartial("../Item/ItemSmallDescription", (EcommerceShop.Models.ViewModel.ItemDetails)EcommerceShop.Utilitaire.DataManipulation.copyItemToItemDetails(item));
+                        }
+
+                    </div>
+                }
+            }
+        </div>
+
+        @foreach (var category in ViewBag.DisplayItem)
+        {
+            @Html.Action("CategorieDisplay", "Categorie", (EcommerceShop.Models.DataModel.Categorie)category)
+            
+        }
+    </div>
+</div>

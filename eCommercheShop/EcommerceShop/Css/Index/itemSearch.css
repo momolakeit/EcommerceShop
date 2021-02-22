@@ -1,0 +1,32 @@
+#itemSeachOptions *{
+	display: inline;
+}
+#subFeatured *{
+	display: inline-block;
+}
+#subFeatured div{
+	margin:0 auto;
+}
+.subFeaturedItem *{
+	display: block  !important;
+}
+.subFeaturedItem {
+	border:none;
+}
+
+#itemSearchBody *{
+	margin:0 auto;
+}
+.card{
+	width: 80%;
+
+}
+#categoriesNavBar {
+    border-radius: 5px 0 0 5px !important;
+    border-right: none;
+}
+
+#searchNavBar {
+    border-radius: 0 5px 5px 0 !important;
+    width: 300px;
+}

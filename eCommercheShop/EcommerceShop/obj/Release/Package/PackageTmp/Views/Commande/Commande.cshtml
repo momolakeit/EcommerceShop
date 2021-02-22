@@ -1,0 +1,128 @@
+﻿@model EcommerceShop.Models.DataModel.Commande
+
+@{
+    ViewBag.Title = "Commande";
+}
+
+<div class="container" style="padding-top: 100px;">
+    <div class="row" style="margin-left: 1px;">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Utiliser les informations enregistrées</label>
+        </div>
+    </div>
+    <div class="row">
+
+        <form class="col-sm-8" style="margin-bottom: 20px;">
+            <div id="clientInfo">
+                <div class="form-group">
+                    <label  for="exampleInputEmail1">Nom Complet</label>
+                    <input name="nomClientCommande" type="text" class="form-control" placeholder="Nom Complet">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Adresse</label>
+                    <input name="Adresse" type="text" class="form-control" placeholder="Adresse">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ville</label>
+                    <input name="Ville" type="text" class="form-control" placeholder="Ville">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Province</label>
+
+                    <select name="Province" class="form-control">
+                        <option>Quebec</option>
+                        <option>Ontario</option>
+                        <option>Colombie-Britannique</option>
+                        <option>Alberta</option>
+                        <option>Nouvelle-Ecosse</option>
+                        <option>Saskatchewan</option>
+                        <option>Manitoba</option>
+                        <option>Nouveau-Brunswick</option>
+                        <option>Terre-Neuve-Et-Labrador</option>
+                        <option>Ile-Du-Prince-Edouard</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Carte de credit</label>
+                <input name="CardNumber" type="text" class="form-control" placeholder="Carte de credit">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date d'expiration</label>
+                <div class="row" style="padding-left: 2%;">
+                    <select name="MoisExpiration" class="form-control col-sm-4" style="display: inline;">
+                        <option>Mois</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select name="AnneExpiration" class="form-control col-sm-4" style="display: inline;">
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">CVV/CVV2</label>
+                    <input name="cvv" type="text" class="form-control" maxlength="4" placeholder="CVV">
+
+                </div>
+
+
+            </div>
+
+            <button type="submit" style="background-color: #28A745;" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="col-sm-4" style="border-style: solid;border-width: thin;;padding-right: 25px; border-radius: 20px; height: 100%;">
+
+            <div class="align-self-center”" style="float:left; ">
+                <p>sasasassas</p>
+                <p>sasasassas</p>
+                <p>sasasassas</p>
+                <p>sasasassas</p>
+                <p> Total</p>
+            </div>
+            <div class="align-self-center”" style="float:right;">
+                <p>sasasassas</p>
+                <p>sasasassas</p>
+                <p>sasasassas</p>
+                <p>sasasassas</p>
+                <p>Prix Total</p>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<script>
+    var check = document.getElementById("exampleCheck1");
+    check.addEventListener("click", function () {
+        if (check.checked == true) {
+            var clientInfo = document.getElementById("clientInfo");
+            clientInfo.style.display = "none";
+        }
+        else {
+            var clientInfo = document.getElementById("clientInfo");
+            clientInfo.style.display = "inline";
+        }
+    })
+</script>
+

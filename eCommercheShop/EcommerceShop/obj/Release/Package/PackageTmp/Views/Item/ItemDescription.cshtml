@@ -1,0 +1,67 @@
+﻿@model EcommerceShop.Models.ViewModel.ItemDetails
+
+@{
+    ViewBag.Title = "ItemDescription";
+   
+}
+
+
+
+
+<div class="container" style="padding-top: 100px;height:575px;">
+    <div class="row" style="height: 200px;">
+        <div class="col-sm-4">
+            <img style="width: 300px; height:200px;" src="@Url.Content(Model.itemImageLink)">
+
+        </div>
+        <div class="col-sm-4">
+
+            <h1>@Model.itemName</h1>
+            <p>Note sur 10</p>
+            <p>
+                @Model.description
+            <p>
+            <p>
+                Prix:@Model.prix$
+            </p>
+
+
+
+        </div>
+        <div class="col-sm-4">
+            <form action="~/Commande/CheckOut" method="get">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre d'articles</label>
+
+                    <select class="form-control" name="nombre">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value=9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    @Html.HiddenFor(Model => Model.MyProperty)
+
+                </div>
+
+                <button type="submit" style="background-color: #28A745;" class="btn btn-primary">Commander</button>
+            </form>
+        </div>
+    </div>
+    <!--
+<h2>Critiques</h2>
+<div class="row">
+    <div class="col-sm-4">
+        <p>sdadsdasdasdasdasdasdasdasdasdasdasdasdasd</p>
+    </div>
+
+</div>
+        Ajouter les critiques en temps et lieu
+-->
+
+</div>

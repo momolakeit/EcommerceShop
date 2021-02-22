@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EcommerceShop.Models.DataModel.ItemVendu>
+
+@{
+    /**/
+
+    ViewBag.Title = "PanierItem";
+}
+<form action="~/Commande/CheckOut" method="get">
+    <div class="container" style="width: 100%;margin-top:100px;" id="monPanierIndexAllItems">
+        @foreach (var item in Model)
+        {
+
+            <div class="row" style="width: 100%;" id="monPanierIndexSingleItems">
+                <div class="col-sm-4">
+                    <img style="width: 150px;height: 100px;" src=@Url.Content(item.itemImageLink)>
+                </div>
+                <p style="font-size:20px" class="col-sm">@item.itemName</p>
+                <p style="font-size:20px" class=" col-sm">@item.itemPrice$</p>
+                <p style="font-size:20px" class=" col-sm">@item.Quantite X</p>
+
+            </div>
+
+
+        }
+        <div class="row">
+            <h2 style="margin-left:5%; margin-top:25px">Prix Total:@EcommerceShop.Utilitaire.ItemUtilitaire.panierTotalPrice(Convert.ToInt16(User.Identity.Name))$</h2>
+        </div>
+    </div>
+    <input style="background-color: #28A745; margin-top: 50px; margin-left:12%;margin-bottom:74px;" class="btn btn-primary" type="submit" value="Commander" />
+</form>
+@if (Model.Count() <= 2)
+{
+    <style>
+        footer {
+            position: absolute !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            height: 60px !important;
+            width: 100% !important;
+        }
+    </style>
+}

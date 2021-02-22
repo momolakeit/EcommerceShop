@@ -1,0 +1,76 @@
+@model EcommerceShop.Models.DataModel.Categorie
+
+@{
+    ViewBag.Title = "View";
+}
+@{
+    Layout = null;
+}
+
+<div id="categorieFeatured">
+
+    <h2> @Model.nomCategorie</h2>
+    <div id="categorieDisplay">
+        <div id="categorieDisplayItem">
+
+            <div id="carouselDisplayItem" class="carousel slide" data-ride="carousel" data-interval="false">
+
+              
+                @{
+                    //TODO PRENDRE LES ITEM DU CATEGORIEDisplay et les mettre ici appeler la methode utilitaire
+                    int i = 0;
+                    int compteurImage = 0;
+                    do
+                    {
+                        <div></div>
+                        if (i == 0)
+                        {
+                            <div class="carousel-item row active">
+                                @do
+                                {
+                                    <img style="width: 30%; height:100px;" class="d-block  col-sm" src="@Url.Content(Model.item.ElementAt(compteurImage).itemImageLink)" alt="">
+
+
+                                    compteurImage = ++compteurImage;
+                                } while (compteurImage < 3);
+
+
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="carousel-item row ">
+                                @do
+                                {
+                                    <img style="width: 30%; height:100px;" class="d-block  col-sm" src="@Url.Content(Model.item.ElementAt(compteurImage).itemImageLink)" alt="">
+                                    compteurImage = ++compteurImage;
+                                    if (compteurImage == Model.item.Count())
+                                    {
+                                        break;
+                                    }
+                                } while (compteurImage % 3!=0);
+
+
+
+                            </div>
+                        }
+                        i = ++i;
+
+                    } while (compteurImage < Model.item.Count());
+                }
+
+
+
+                <a class="carousel-control-prev" href="#carouselDisplayItem" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" style="outline: black;" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselDisplayItem" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" style="outline: black;" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿@model EcommerceShop.Models.ViewModel.Inscription
+
+@{
+    ViewBag.Title = "Inscription";
+}
+
+
+    <form action="~/Client/Inscription"  method="post" style="width: 60%; margin: 0 auto; border-style: solid;border-width: thin;border-radius: 10px; padding: 30px;padding-bottom: 50px;margin-top:100px;margin-bottom:150px">
+        @{ 
+            if (ViewBag.dejaInscrit==true)
+            {
+                <p style="color:red">Ce email a déja été utilisé</p>
+            }
+        }
+        
+        <div class="form-group">
+            <label for="exampleInputEmail1">Adresse Courriel</label>
+            <input type="email" name="EmailAdresse" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse Courriel">
+            <p class="validationDager" style="display:none">Ce n'est pas un email</p>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Adresse Courriel Confirmation</label>
+            <input type="email" name="EmailAdresseConfirmation" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse Courriel Confirmation">
+            <p class="validationDager" style="display:none;color:red;">Les adresses courriel ne concordent pas</p>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe</label>
+            <input type="password" name="Password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+            <p class="validationDager" style="display:none;color:red;">Ce n'est pas un email</p>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe Confirmation</label>
+            <input type="password" name="PasswordConfirmation" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe confirmation">
+            <p class="validationDager" style="display:none;color:red;">Les mot de passe ne concordent pas</p>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Prenom</label>
+            <input type="text" name="Prenom" class="form-control" id="exampleInputPassword1" placeholder="Prenom">
+            <p class="validationDager" style="display:none;color:red;"></p>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Nom</label>
+            <input type="text" name="Nom" class="form-control" id="exampleInputPassword1" placeholder="Nom">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Adresse</label>
+            <input type="text" name="Adresse" class="form-control" id="exampleInputPassword1" placeholder="Adresse">
+            <p class="validationDager" style="display:none;color:red;"></p>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Ville</label>
+            <input type="text" name="Ville" class="form-control" id="exampleInputPassword1" placeholder="Ville">
+            <p class="validationDager" style="display:none;color:red;"></p>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Province</label>
+
+            <select name="Province" class="form-control">
+                <option>Quebec</option>
+                <option>Ontario</option>
+                <option>Colombie-Britannique</option>
+                <option>Alberta</option>
+                <option>Nouvelle-Ecosse</option>
+                <option>Saskatchewan</option>
+                <option>Manitoba</option>
+                <option>Nouveau-Brunswick</option>
+                <option>Terre-Neuve-Et-Labrador</option>
+                <option>Ile-Du-Prince-Edouard</option>
+            </select>
+            <p class="validationDager" style="display:none;color:red;"></p>
+        </div>
+
+        
+        <button type="submit" style="background-color: #28A745;" class="btn btn-primary">Submit</button>
+    </form>

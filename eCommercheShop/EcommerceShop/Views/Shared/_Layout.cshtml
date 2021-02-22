@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>MoShop</title>
+    <link rel="stylesheet" type="text/css" href="../Css/BootStrap/css/bootstrap-grid.csscss">
+    <link rel="stylesheet" type="text/css" href="../Css/BootStrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="../Css/BootStrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" type="text/css" href="../Css/BootStrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type="text/css" href="../Css/BootStrap/css/bootstrap.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="~/Css/BootStrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Css/Index/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark pr-5 pl-5 " style="">
+            <a class="navbar-brand" href="/Home/Index">MoShop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse  justify-content-end " id="navbarSupportedContent">
+                <div id="navbarSupportedContentInside">
+                    <form action="~/Item/itemSearch" method="get" class="form-inline my-2 my-lg-0">
+                        @{
+                            var dico = EcommerceShop.Utilitaire.DataManipulation.categoryToDictionnary();
+                            @Html.DropDownList("CategoryId",
+                            new SelectList(dico, "Key", "Value"),
+                            new {
+                                @name = "categorie1",
+                                @class = "form-control",
+                                @id= "categoriesNavBar"
+
+                            })
+
+                        }
+
+                        <input class="form-control mr-sm-2" type="search" id="searchNavBar" name="motCle" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <div>
+
+                        <ul class="navbar-nav float-right ">
+                            @{
+                                if (User.Identity.IsAuthenticated)
+                                {
+
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Bonjour @EcommerceShop.Utilitaire.ClientUtilitaire.LoggedClient().clientPrenom<span class="sr-only">(current)</span></a>
+                                    </li>
+
+
+                                    <!--li class="nav-item">
+                    <a class="nav-link" href="@Url.Content("Client/Message")">Messages</a>
+                </li>
+                    -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Client/Deconnection">Deconnection</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="/Item/panierIndex">Panier Montant:@EcommerceShop.Utilitaire.ItemUtilitaire.panierTotalPrice(Convert.ToInt16(User.Identity.Name))$</a>
+                                    </li>
+                                }
+                                else
+                                {
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/Client/Connection">Conexion</a>
+                                    </li>
+
+
+                                }
+                            }
+
+                        </ul>
+
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+
+    <footer style="height: 50px;" class=" navbar-dark bg-dark pr-5 pl-5 ">
+        <p style="margin-left: 5%;" class="navbar-brand">Par Mohamed Keita</p>
+    </footer>
+</body>
+</html>

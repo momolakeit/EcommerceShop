@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="EcommerceShop-Web.config Connection String" description="EcommerceShop Chaîne de connexion utilisée dans web.config par l’application pour accéder à la base de données." defaultValue="Server=tcp:momoserveur.database.windows.net,1433;Initial Catalog=momoDb;Persist Security Info=False;User ID=mohamed;Password=momo1234?;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=200;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\MOBANDZ\\source\\repos\\EcommerceShop\\eCommercheShop\\EcommerceShop\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EcommerceShop']/@connectionString" />
+  </parameter>
+</parameters>
